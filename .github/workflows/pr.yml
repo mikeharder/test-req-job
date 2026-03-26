@@ -1,0 +1,11 @@
+name: PR
+
+on:
+  pull_request:
+
+jobs:
+  hello:
+    runs-on: ubuntu-slim
+    if: github.event.pull_request.number % 2 == 0
+    steps:
+      - run: echo "${{ github.event.pull_request.number }}"
