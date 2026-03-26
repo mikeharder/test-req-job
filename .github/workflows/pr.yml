@@ -6,6 +6,8 @@ on:
 jobs:
   hello:
     runs-on: ubuntu-slim
-    if: github.event.pull_request.number % 2 == 0
+    if: "!contains(github.event.pull_request.title, 'skip')"
     steps:
-      - run: echo "${{ github.event.pull_request.number }}"
+      - run: echo "$TITLE"
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
