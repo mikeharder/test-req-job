@@ -1,0 +1,12 @@
+name: github
+
+on:
+  pull_request:
+    paths:
+      - ".github/**"
+
+jobs:
+  github:
+    runs-on: ubuntu-slim
+    steps:
+      - run: echo "github"
